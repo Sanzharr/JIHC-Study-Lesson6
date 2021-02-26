@@ -8,7 +8,8 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-    Button button7 , button8 , button9 , buttonx , buttonc , buttonp , buttonpr , buttonb , button4 , button5 , button6 , buttonm , button1 , button2 , button3 , buttonk , button0 , buttonz , buttont ;
+    Button btn0, btn1,  btn2,  btn3,  btn4,  btn5,  btn6,  btn7,  btn8, btn9;
+    Button btnc, btnp;
     TextView tvSan;
 
 
@@ -16,152 +17,108 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        button7 = findViewById(R.id.btn7);
-        button8 = findViewById(R.id.btn8);
-        button9 = findViewById(R.id.btn9);
-        buttonx = findViewById(R.id.btnx);
-        buttonc = findViewById(R.id.btnc);
-        buttonp = findViewById(R.id.btnp);
-        buttonpr = findViewById(R.id.btnpr);
-        buttonb = findViewById(R.id.btnb);
-        button4 = findViewById(R.id.btn4);
-        button5 = findViewById(R.id.btn5);
-        button6 = findViewById(R.id.btn6);
-        buttonm = findViewById(R.id.btnm);
-        button1 = findViewById(R.id.btn1);
-        button2 = findViewById(R.id.btn2);
-        button3 = findViewById(R.id.btn3);
-        buttonk = findViewById(R.id.btnk);
-        button0 = findViewById(R.id.btn0);
-        buttonz = findViewById(R.id.btnz);
-        buttont = findViewById(R.id.btnt);
+        btn0 = findViewById(R.id.btn0);
+        btn1 = findViewById(R.id.btn1);
+        btn2 = findViewById(R.id.btn2);
+        btn3 = findViewById(R.id.btn3);
+        btn4 = findViewById(R.id.btn4);
+        btn5 = findViewById(R.id.btn5);
+        btn6 = findViewById(R.id.btn6);
+        btn7 = findViewById(R.id.btn7);
+        btn8 = findViewById(R.id.btn8);
+        btn9 = findViewById(R.id.btn9);
 
-
+        btnc = findViewById(R.id.btnc);
+        btnp = findViewById(R.id.btnp);
 
         tvSan = findViewById(R.id.tv_san);
 
-        button7.setOnClickListener(new View.OnClickListener() {
+        View.OnClickListener buttonSandar = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvSan.setText("7");
-            }
-        });
+                String aldingiSan = tvSan.getText(). toString();
+                String basilganSan = "";
+                String songiResult = "";
 
-        button8.setOnClickListener(new View.OnClickListener() {
+                switch (view.getId()){
+                    case R.id.btn0:
+                        basilganSan = "0";
+                        break;
+                    case R.id.btn1:
+                        basilganSan = "1";
+                        break;
+                    case R.id.btn2:
+                        basilganSan = "2";
+                        break;
+                    case R.id.btn3:
+                        basilganSan = "3";
+                        break;
+                    case R.id.btn4:
+                        basilganSan = "4";
+                        break;
+                    case R.id.btn5:
+                        basilganSan = "5";
+                        break;
+                    case R.id.btn6:
+                        basilganSan = "6";
+                        break;
+                    case R.id.btn7:
+                        basilganSan = "7";
+                        break;
+                    case R.id.btn8:
+                        basilganSan = "8";
+                        break;
+                    case R.id.btn9:
+                        basilganSan = "9";
+                        break;
+
+                }
+                if (!aldingiSan.equals("0")) songiResult = aldingiSan + basilganSan;
+                else songiResult = basilganSan;
+
+                tvSan.setText(songiResult);
+
+            }
+    };
+
+        btn0.setOnClickListener(buttonSandar);
+        btn1.setOnClickListener(buttonSandar);
+        btn2.setOnClickListener(buttonSandar);
+        btn3.setOnClickListener(buttonSandar);
+        btn4.setOnClickListener(buttonSandar);
+        btn5.setOnClickListener(buttonSandar);
+        btn6.setOnClickListener(buttonSandar);
+        btn7.setOnClickListener(buttonSandar);
+        btn8.setOnClickListener(buttonSandar);
+        btn9.setOnClickListener(buttonSandar);
+
+        View.OnClickListener buttonOwiruPlusMinus = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tvSan.setText("8");
+                switch (view.getId()){
+                    case R.id.btnc:
+                        tvSan.setText("0");
+                        break;
+
+                    case R.id.btnp:
+                        String sanText = tvSan.getText().toString():
+                        int san = Integer.parseInt(sanText);
+
+                        if (san > 0) tvSan.setText("-"+sanText);
+                        else{
+                            san = san * (-1);
+                            tvSan.setText(""+san);
+                        }
+
+                        break;
+                }
             }
-        });
+        };
+        btnc.setOnClickListener(buttonOwiruPlusMinus);
+        btnp.setOnClickListener(buttonOwiruPlusMinus);
 
-        button9.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("9");
-            }
-        });
-
-        buttonx.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("x");
-            }
-        });
-
-        buttonc.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("c");
-            }
-        });
-
-        buttonp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("p");
-            }
-        });
-
-        buttonpr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("pr");
-            }
-        });
-
-        buttonb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("b");
-            }
-        });
-
-        button4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("4");
-            }
-        });
-
-        button5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("5");
-            }
-        });
-
-        button6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("6");
-            }
-        });
-
-        buttonm.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("m");
-            }
-        });
-
-        button1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("1");
-            }
-        });
-
-        button2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("2");
-            }
-        });
-
-        button0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("0");
-            }
-        });
-
-        buttonz.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("z");
-            }
-        });
-
-        buttont.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                tvSan.setText("t");
-            }
-        });
+    }
+}
 
 
-
-        {
-
-            {
 
