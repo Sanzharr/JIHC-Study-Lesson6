@@ -10,8 +10,11 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
     Button btn0, btn1,  btn2,  btn3,  btn4,  btn5,  btn6,  btn7,  btn8, btn9;
     Button btnc, btnp;
-    TextView tvSan;
+    Button btnk, btnm, btnx, btnb, btnt;
 
+    TextView tvSan, tvZapis;
+
+    String birinshiSan, ekinshiSan, znak, zapisText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +34,15 @@ public class MainActivity extends AppCompatActivity {
         btnc = findViewById(R.id.btnc);
         btnp = findViewById(R.id.btnp);
 
+        btnk = findViewById(R.id.btnk);
+        btnm = findViewById(R.id.btnm);
+        btnx = findViewById(R.id.btnx);
+        btnb = findViewById(R.id.btnb);
+        btnt = findViewById(R.id.btnt);
+
         tvSan = findViewById(R.id.tv_san);
+        tvZapis = findViewById(R.id.tv_zapis);
+
 
         View.OnClickListener buttonSandar = new View.OnClickListener() {
             @Override
@@ -116,6 +127,68 @@ public class MainActivity extends AppCompatActivity {
         };
         btnc.setOnClickListener(buttonOwiruPlusMinus);
         btnp.setOnClickListener(buttonOwiruPlusMinus);
+
+        View.OnClickListener btnFunctions = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                birinshiSan = tvSan.getText().toString();
+                switch (view.getId()){
+                    case R.id.btnk:
+                        znak = "+";
+                        break;
+
+                    case R.id.btnm:
+                        znak = "-";
+                        break;
+
+                    case R.id.btnx:
+                        znak = "*";
+                        break;
+
+                    case R.id.btnb:
+                        znak = "/";
+                        break;
+                }
+                zapisText = birinshiSan + znak;
+                tvZapis.setText(zapisText);
+                tvSan.setText("0");
+
+            }
+        };
+
+        btnk.setOnClickListener(btnFunctions);
+        btnm.setOnClickListener(btnFunctions);
+        btnx.setOnClickListener(btnFunctions);
+        btnb.setOnClickListener(btnFunctions);
+
+
+        btnt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                ekinshiSan = tvSan.getText().toString();
+                int san1 = Integer.parseInt(birinshiSan);
+                int san2 = Integer.parseInt(ekinshiSan );
+                int res = 0;
+                if(znak.equals("+")){
+
+                    res = san1 + san2;
+                }else if(znak.equals("-")){
+                    res = san1 - san2;
+                }
+                else if(znak.equals("*")){
+                    res = san1 * san2;
+                }
+                else if(znak.equals("/")){
+                    res = san1 / san2;
+                }
+
+                zapisText = birinshiSan + znak + ekinshiSan + " = "+res;
+
+                tvZapis.setText(zapisText);
+                tvSan.setText(""+res);
+
+            }
+        });
 
     }
 }

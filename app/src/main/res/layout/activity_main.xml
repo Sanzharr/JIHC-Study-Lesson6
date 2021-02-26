@@ -6,6 +6,14 @@
     xmlns:add="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".MainActivity">
+    <TextView
+        android:id="@+id/tv_zapis"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="40dp"
+        android:gravity="right"
+        android:paddingRight="10dp" />
 
     <TextView
         android:id="@+id/tv_san"
